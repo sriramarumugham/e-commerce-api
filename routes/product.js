@@ -1,25 +1,12 @@
 const express=require('express');
 const router=express.Router();
 
-router.get('/' , function (req, res){
-    return res.json({
-        "message":"Getting all products"
-    })
-})
-router.get('/:id' , function (req, res){
-    return res.json({
-        "message":"Here is your product with id"
-    })
-})
-router.delete('/:id' , function(req, res){
-    return res.json({
-        "message":"Deleting the id"
-    })
-})
-router.post('/:id/update_quantity/' , function(req, res){
-    return res.json({
-        "message":`Updated the product with the id ${req.url}`
-    })
-})
+const products_api=require('../controller/product_controller');
+
+router.post('/create' , products_api.create);
+router.get('/' , products_api.fetchAll);
+router.get('/:id' , products_api.fetchOne);
+router.delete('/:id' , products_api.destroy);
+router.post('/:id/update_quantity/' , products_api.update);
 
 module.exports=router;
