@@ -7,6 +7,7 @@ module.exports.create = async function (req, res) {
       {
         name: req.query.name,
         quantity: req.query.quantity,
+        id: req.query.id,
       },
       function (err, x) {
         if (!err) {
@@ -77,7 +78,25 @@ module.exports.fetchOne = async function (req, res) {
 
 module.exports.update = async function (req, res) {
   try {
-   
+    let searchid = parseInt(req.params.id);
+    console.log(searchid);
+    console.log(req.body);
+    let result = await Product.findOneAndUpdate(
+      { id: searchid },
+      {
+        name: req.body.name,
+        quantity: req.body.quantity,
+      }
+    );
+    let data = {};
+    let product = {};
+
+    product.id = result.id;
+    product.name = result.name;
+    product.quantity = result.quantity;
+    data.product = product;
+
+    return res.status(200).json({ data: data });
   } catch (err) {
     console.log("********", err);
     return res.json(500, {
