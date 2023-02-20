@@ -1,5 +1,12 @@
+const dotenv=require('dotenv').config();
+
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/e_commerce_api_dev");
+
+mongoose.connect(process.env.openUri).then(()=>{
+  console.log("atlast db connectd")
+}).catch((err)=>{
+  console.log("Failed to connect")
+})
 
 const db = mongoose.connection;
 

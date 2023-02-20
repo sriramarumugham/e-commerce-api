@@ -2,9 +2,10 @@ const express=require('express');
 
 const bodyParser=require('body-parser');
 
+const PORT = process.env.PORT || 8000;
+
 const app=express();
 
-const PORT=8000;
 
 const db=require('./config/mongoose');
 
