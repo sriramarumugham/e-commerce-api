@@ -9,7 +9,12 @@ const app=express();
 
 const db=require('./config/mongoose');
 
+app.use(bodyParser.urlencoded({ extended: false }));
+
+
 app.use(express.urlencoded());
+
+
 
 app.use('/' , require('./routes/index'));
 
