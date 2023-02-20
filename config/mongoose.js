@@ -2,6 +2,9 @@ const dotenv=require('dotenv').config();
 
 const mongoose = require("mongoose");
 
+
+mongoose.set('strictQuery', false);
+
 mongoose.connect(process.env.openUri).then(()=>{
   console.log("atlast db connectd")
 }).catch((err)=>{
