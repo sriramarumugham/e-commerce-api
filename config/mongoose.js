@@ -8,7 +8,7 @@ mongoose.set('strictQuery', false);
 mongoose.connect(process.env.openUri).then(()=>{
   console.log("atlast db connectd")
 }).catch((err)=>{
-  console.log("Failed to connect")
+  console.log("Failed to connect" , err)
 })
 
 const db = mongoose.connection;
