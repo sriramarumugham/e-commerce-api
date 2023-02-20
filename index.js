@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 8000;
 
 const db=require('./config/mongoose');
 
-// app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(express.urlencoded({extended: true})); 
 

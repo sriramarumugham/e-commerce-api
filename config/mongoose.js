@@ -1,4 +1,5 @@
-const dotenv=require('dotenv').config();
+require('dotenv').config();
+
 
 const mongoose = require("mongoose");
 
@@ -6,7 +7,7 @@ const mongoose = require("mongoose");
 mongoose.set('strictQuery', true);
 
 
-mongoose.connect(process.env.openUri).then(()=>{
+mongoose.connect(process.env.mongodBUrl).then(()=>{
   console.log("atlast db connectd")
 }).catch((err)=>{
   console.log("Failed to connect" , err)
