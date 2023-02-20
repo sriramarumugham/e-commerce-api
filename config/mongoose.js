@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 
 mongoose.set('strictQuery', false);
 
-// console.log(process.env.openUri);
+console.log(process.env.openUri);
 
 mongoose.connect(process.env.openUri).then(()=>{
   console.log("atlast db connectd")
